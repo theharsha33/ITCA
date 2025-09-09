@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script> 
+            let studentOb = new Object();
+            studentOb.name = "Chinna"
+            studentOb.age = 21;
+            studentOb.hobby = "Playing";
+            studentOb.showAge = function(){
+                alert("Student age is : "+this.age);
+            }
+            studentOb.showName = function(){
+                alert("Student name is : "+this.name);
+            }
+            studentOb.showName();
+            studentOb.showAge();
+            
+
+            let facultyOb = {};
+            facultyOb.name = "ashok";
+            facultyOb.city  = "pulivendula";
+            facultyOb.showName  = function(){
+                alert(this.name);
+            }
+            facultyOb.showName();
+            
+            let studentObOne = {
+                name: " balu",
+                hobby:"drawing",
+                native:"tadipatri",
+                showHobby :function(){
+                    alert(this.hobby);
+                }
+            }
+            studentObOne.showHobby();
+        </script>
+    </head>
+</html>

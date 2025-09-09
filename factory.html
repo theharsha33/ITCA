@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function factory(name,age,hobby){
+            let studentOb = new Object();
+            studentOb.name = name;
+            studentOb.age = age;
+            studentOb.hobby = hobby;
+            studentOb.showAge = function(){
+                alert(this.age);
+            }
+            studentOb.showName = function(){
+                alert("Student name is "+this.name);
+            }
+            return studentOb;
+        }
+        let johnOb = factory("john",21,"music");
+        let smithOb = factory("smith",22,"playing");
+        console.log(johnOb);
+        console.log(smithOb);
+    </script>
+</html>

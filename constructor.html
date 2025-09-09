@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function Hero(name,planet){
+            this.name = name;
+            this.planet = planet;
+            this.sayName = function(){
+                alert(this.name);
+            }
+            
+        }
+        var obOne = new Hero("Uday","Earth");
+            var obTwo = new Hero("kittu","Earth");
+            obOne.sayName();
+            obTwo.sayName();
+    </script>
+</html>

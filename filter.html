@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <button onclick = "print()">print</button>
+        <script>
+            let students = ["Ashok","uday","harsha"];
+            
+           let newStudents = students.filter(function(val,index) {
+            if(val=="harsha"){
+                return false
+            }
+            else {
+                return true
+            }
+           })
+           alert(newStudents);
+            
+           alert(newNos);
+        </script>
+    </body>
+</html>

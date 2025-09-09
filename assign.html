@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+    </body>
+    <script>
+        //immediate function
+        function outerFunc(param) {
+            function innerFunc(input) {
+                return input * 4;
+            }
+            return 'The result is ' + innerFunc(param);
+        }
+        outerFunc(12);
+
+         
+        (
+            function() {
+                alert('Hey u called me without invoking !!!!!');
+
+            }
+        ) ();
+        alert(invokeSum(returnOne,returnTwo))
+        (
+            function (name,location) {
+                alert("Hello name is " + name + "and ;location is " +location);
+
+            }
+        )('uday','99');
+        function invokeSum(a,b) {
+            return a() + b() ;
+        }
+        function returnOne() {
+            return 5;
+        }
+        function returnTwo() {
+            return 5;
+        }
+        
+        
+    </script>
+</html>

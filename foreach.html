@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <button onclick = "print()">print</button>
+        <script>
+            let students = ["Ashok","uday","harsha"];
+            /* students.forEach(function(val,index){
+                alert(`val=${val} and index = ${index}`)
+            })*/
+           let newStudents = students.map(function(val,index){
+            return val + " from G Pulla Reddy College"
+           })
+           alert(newStudents);
+           let nos = [1,2,3,4];
+           let newNos = nos.map(function(no){
+            return no*no;
+           })
+           alert(newNos);
+        </script>
+    </body>
+</html>

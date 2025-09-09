@@ -1,0 +1,110 @@
+
+<!DOCTYPE html> 
+<html>
+
+<head>
+    <style>
+        form,#output{
+            border: 5px solid blue;
+            padding: 10px;
+            margin: 10px;
+            width:22%;
+        }
+        input{
+            border:2px solid rgb(9, 223, 9);
+            padding: 10px;
+            margin: 10px;
+            font-size: 20px;
+            display: block;
+
+        }
+        img{
+            width: 40%;
+        }
+        #submit-button{
+            margin: auto;
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<form onsubmit="display(event)" action="https://google.com"> 
+    <input type="text" name="name" placeholder="name" id ="student-name">
+    <input type="number" name="age" placeholder="age" id ="student-age">
+    <input type="url" name="url" id="url">
+    <input type="submit" name="add" id="submit-button">
+</form>
+<input type = "text" id = "search" oninput="search()">
+<div id ="output"></div> <button onclick="clearAll()">clear all</button>
+
+<button onclick="reset()"> reset </button>
+<button onclick="displayStudents()"> display students</button>
+<script>
+    function search(){
+        let serachText = document.querySelector("#search").value;
+        let newstudents = students.filter(function(val){
+            if(val.name.includes(serachText)){
+                return true;
+            } else{
+                return false;
+            }
+        })
+        displayStudentsSearch(newstudents);
+    }
+    function displayStudentsSearch(students){
+        console.log(students);
+        let i;
+        let studentHtml="";
+        for(i=0;i<students.length;i++){
+            studentHtml = studentHtml +`<div> Name:${students[i].name}
+                <button onclick="deleteStudent(${i})"> delete </button>`;
+            
+        }
+        document.querySelector("#output").innerHTML = studentHtml;
+    }
+    function reset(){
+        displayStudents();  
+    }
+    let nameOb = document.querySelector("#student-name");
+    let ageOb = document.querySelector("#student-age");
+    let urlOb = document.querySelector("#url");
+    let students = [];
+    function clearAll(){
+        students=[];
+        displayStudents();
+    }
+    function display(){
+        // it stops default behaviour means it doesnt submit form
+        event.preventDefault();
+        alert(`name=${nameOb.value} and age =${ageOb.value}` +" form submitted")
+            let studentOb = {
+                name:nameOb.value,
+                age:ageOb.value,
+                url:urlOb.value
+            }
+            students.push(studentOb);
+            displayStudents();
+
+        }
+        function deleteStudent(i){
+            alert(i);
+            students.splice(i,1);
+            displayStudents();
+            
+        }
+        function displayStudents(){
+            console.log(students);
+            let  i;
+            let studentHtml = "";
+            for(i=0;i<students.length;i++)
+            {
+                studentHtml = studentHtml+ `<div>Name:${students[i].name}, Age:${students[i].age}, <div> <img src = ${students[i].url}> </div> <button onclick="deleteStudent(${i})">delete</button></div>`;
+               
+            }
+
+            document.querySelector("#output").innerHTML = studentHtml;
+        }
+        </script>
+    </body>
+</html>

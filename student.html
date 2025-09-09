@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Form 
+    </title>
+    <style>
+        body{
+            background-color: white;
+            padding-left: 20%;
+            padding-bottom: 100%;
+        }
+        #output{
+            background-color: rgb(255, 255, 255);
+        padding: 10%;
+        height: 80%;
+        text-align: center;
+        border: 2px solid black;
+        border-radius: 20%;
+        width: 50%;
+        
+        }
+        form{
+        background-color: rgb(1, 158, 206);
+        text-align: center;
+        padding: 10%;
+        height: 80%;
+        border: 2px solid black;
+        border-radius: 20%;
+        width: 50%;
+        padding-left: 20%;
+        padding-top: 150px
+        }
+        #student-name 
+        {
+            padding: 1.9%;
+            padding-inline: 16%;
+            text-align: left;
+            transition: transform 0.4 ease;
+        }
+        #student-age
+        {
+            padding: 1.9%;
+            padding-inline: 16%;
+            text-align: left;
+            transition: transform 0.4 ease;
+        }
+       
+    </style>
+</head>
+<body>
+    
+    <form onsubmit ="display(event)" action="https://www.google.com/" >
+        <h1>Student Details</h1>
+        <input type="text" name="name" placeholder="name" id="student-name"><br><br> 
+        <input type="number" name="age" placeholder="age" id="student-age"><br><br>
+        <button type="submit" value="add student" placeholder="submit-button" >SUBMIT</button>
+    </form>
+    <div id="output"></div>
+    <button onclick = "clearAll()">Clear All</button>
+    <!-- <button onclick ="displayStudents()">display students </button> -->
+
+    <script>
+        let nameOb = document.querySelector("#student-name");
+        let ageOb = document.querySelector("#student-age");
+        let students = [];
+        function clearAll(){
+            students = [];
+            displayStudents();
+        }
+        function display(){
+            event.preventDefault();
+            alert(`name = ${nameOb.value} and age = ${ageOb.value}`);
+        
+        let studentOb = {
+            name: nameOb.value, age: ageOb.value 
+        }
+        students.push(studentOb);
+        displayStudents();
+    }
+    function deleteStudent(i){
+        alert(i);
+        students.splice(i,1);
+        displayStudents();
+    }
+    function displayStudents(){
+        console.log(students);
+        let i;
+        let studenthtml="";
+        for(i=0;i<students.length;i++){
+            studenthtml = studenthtml+ `<div>Name:${students[i].name}, Age:${students[i].age}<button onclick="deleteStudent(${i})">delete</button></div>`;
+            
+        }
+        document.querySelector("#output").innerHTML =studenthtml;
+
+    }
+    </script>
+</body>
+
+</html>

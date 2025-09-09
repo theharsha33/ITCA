@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        About forms
+    </title>
+    <style>
+        form{
+            border: solid blue;
+            padding : 5px;
+        }
+    </style>
+</head>
+<body>
+    <form oninput="display.value = salaryone.value">
+            <input type="email" name="user-email" placeholder="Enter email">
+            <!-- oninput ="display.value" = "maxSalary.value"--> 
+            <input type="url" name="webpage" placeholder="Enter url">
+            <input type="Date" name="Birthday" min="2025-01-01" max="2025-02-08">
+            <input type="month" name="'birthday-month" >
+            <input type="week" name="quiz-week" >
+            <input type="time" name="quiz-time" >
+            <input type="color" name="color" >
+            <input type="tel" name="phone" >
+            <input type="number" name="salary" >
+            <output name="display" for="salaryone"></output>
+            <input type="range" min="10000" max="100000" name="salaryone">
+    </form>
+</body>
+</html>
