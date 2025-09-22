@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <style>
+        #output{
+            border: 4px solid rgb(187, 128, 39);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        #loader{
+            height: 500px;
+            width: 50%;
+            background-repeat: no-repeat;
+            background-image: url(captain-leading-from-front-rohit-sharma.gif);
+           background-size: auto;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="loader"></div>
+    <div id="output"></div>
+    <input type="text" name="name" id="studentname" placeholder="Enter name">
+    <button onclick="getGender()">Get Gender</button>
+    <script>
+        console.log(axios);
+        function getGender(){
+            let personName = document.querySelector("#studentname").value;
+            let promiseOb = axios.get(`https://api.genderize.io/?name=${personName}`)
+            promiseOb.then(function(result)
+            {
+                let gender = result.data.gender;
+            let probability = result.data.probability;
+
+            let data = `
+                <div>Name: ${personName}</div>
+                <div>Gender: ${gender}</div>
+                <div>Probability: ${(probability * 100)}%</div>
+            `;
+
+                console.log(data);
+                document.querySelector("#output").innerHTML = data;
+            })
+        }
+    </script>
+</body>
+</html>
