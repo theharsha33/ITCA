@@ -1,0 +1,27 @@
+<html>
+
+<body>
+    <script>
+        function add(a, b) {
+            let promisesOb = new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    let sum = b - a;
+                    console.log(`inside set timeout result = ${sum}`);
+                    resolve(sum);
+                }, 5000);
+            });
+            return promisesOb;
+        }
+        let resultPromiseOb = add(4, 5);
+
+        resultPromiseOb.then(function (result) {
+            alert(`The addition is ${result}`)
+        })
+
+        resultPromiseOb.catch(function (error) {
+            alert(`The operation failed and error = ${error}`)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <style>
+        #output{
+            border: 4px solid rgb(187, 128, 39);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        #loader{
+            height: 500px;
+            background-repeat: no-repeat;
+            background-image: url(adiripoyindi-keka.gif);
+            background-size: 40%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="loader"></div>
+    <div id="output"></div>
+    <script>
+        console.log(axios);
+        let loaderDiv=document.querySelector("#loader");
+        loaderDiv.style.display="block";
+        function randomNO(){
+            let promiseOb=new Promise(function(resolve,reject){
+                setTimeout(function(){
+                let no=Math.random()*10;
+                no=Math.ceil(no);
+                if(no>5){
+                    resolve(no);
+                }
+                else{
+                    reject(`Number less than 5,Actual no. was ${no}`);
+                }
+                console.log(no);
+                },5000)
+            })
+            return promiseOb;
+        }
+        let resultPromiseOb=randomNO();
+        resultPromiseOb.then(function(result){
+            alert(`operation success and no =${result}`);
+        })
+        resultPromiseOb.catch(function(error){
+            alert(error)
+        })
+        resultPromiseOb.finally(function(){
+            document.querySelector("#output").innerHTML="operation successfull Darling..."
+            loaderDiv.style.display="none";
+        })
+    </script>
+</body>
+</html>

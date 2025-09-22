@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>      
+    <head>  
+        <title>Json Explore</title>
+    </head> 
+    <script>    
+        let stOb = new Object();
+        stOb.name = "Harsha"; stOb.age=20; stOb.hobby = "music";
+        console.log(stOb);
+        console.log(typeof(stOb));
+         
+       
+
+        let stObJson = '["Ashok","Uday","Harsha"]';
+        console.log(stObJson);
+        console.log(typeof(stObJson));
+
+
+        let conStOb = JSON.parse(stObJson);
+        console.log(conStOb);
+        console.log(typeof(conStOb));
+    </script>
+</html>

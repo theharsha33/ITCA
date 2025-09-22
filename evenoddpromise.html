@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            function randomNo(){
+                    let promiseOb = new Promise(function(resolve,reject){
+                        setTimeout(function(){
+                let no = Math.random()*10;
+                no=Math.ceil(no);
+                if(no>5){
+                    resolve(no);
+                } else{
+                    reject(` number less than 5,actual no was ${no}`);
+                }
+                console.log(no);
+            },5000)
+        })            
+            return promiseOb;
+    }
+    let resultProimiseOb = randomNo();
+    resultProimiseOb.then(function(result){
+        alert(`operation success and no = ${result}` );
+    })
+    resultProimiseOb.catch(function(error){
+        alert(error);
+    })
+    </script>
+    </body>z
+</html>

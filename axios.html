@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <style>
+        #output{
+            border: 4px solid yellowgreen;
+            padding: 40px;
+            border-radius: 10px;
+          
+        }
+        #loader{
+            height: 500px;
+            background-repeat: no-repeat;
+            background-image: url("https://media.tenor.com/FpBiSlMFhhEAAAAM/bk.gif")
+        }
+    </style>
+</head>
+<body>
+    <div id="loader"></div>
+    <div id="output"></div>
+    <button onclick="getJoke()"> Get Joke</button>
+    <script>
+        console.log(axios);
+        function getJoke(){
+            let promiseOb = axios.get("https://official-joke-api.appspot.com/random_joke");
+            promiseOb.then(function(result){
+                console.log(result.data);
+                document.querySelector("#output").innerHTML = result.data.setup;
+            })
+        }
+        </script>
+</body>
+</html>

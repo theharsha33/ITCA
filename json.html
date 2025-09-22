@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Json Explore</title>
+    </head>
+    <script>
+        let stOb = new Object();
+        stOb.name = "Ashok";
+        stOb.age = 20;
+        stOb.hobby = "Coding";
+        console.log(stOb);
+        console.log(typeof(stOb));
+        
+
+        let stObjson = JSON.stringify(stOb);
+        console.log(stObjson);
+        console.log(typeof(stObjson));
+
+
+        let convertedStOb = JSON.parse(stObjson);
+        console.log(convertedStOb);
+        console.log(typeof(convertedStOb));
+        
+
+        
+    </script>
+</html>

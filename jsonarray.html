@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>      
+    <head>  
+        <title>Json Explore</title>
+    </head> 
+    <script>    
+        let stArray = ["Ashok","Uday","Harsha"]
+        console.log(stArray);
+        console.log(typeof(stArray));
+
+        
+
+        let stArrayjson = JSON.stringify(stArray);
+        console.log(stArrayjson);
+        console.log(typeof(stArrayjson));
+        
+
+        let convertedArrayOb = JSON.parse(stArrayjson);
+        console.log(convertedArrayOb);
+        console.log(typeof(convertedArrayOb));
+        
+
+        
+    </script>
+</html>
